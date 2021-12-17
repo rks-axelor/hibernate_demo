@@ -1,0 +1,38 @@
+
+plugins{
+	id "java"
+}
+repositories {
+	// Use Maven Central for resolving dependencies.
+	mavenCentral()
+	
+}
+//mainClassName='Main'
+/*task customFatJar( type : Jar) {
+	manifest{
+		attributes "Main-Class" : "hbdemo.app"
+	}
+	baseName = 'DemoFat'
+	from{
+		Configurations.runtimeClasspath.collect{it.isDirectory() ? it : zipTree(it)}
+		}
+	with jar
+	}
+*/
+dependencies {
+	
+	// hibernate dependecy
+	implementation 'org.hibernate:hibernate-core:5.5.6.Final'
+	
+	// Use JUnit test framework.
+	testImplementation 'junit:junit:4.13.1'
+
+	// This dependency is exported to consumers, that is to say found on their compile classpath.
+	//api 'org.apache.commons:commons-math3:3.6.1'
+
+	// This dependency is used internally, and not exposed to consumers on their own compile classpath.
+	implementation 'com.google.guava:guava:30.0-jre'
+	
+	implementation 'org.postgresql:postgresql:42.1.4'
+
+}
